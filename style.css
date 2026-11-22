@@ -1,0 +1,504 @@
+/* =========================================
+   1. DESIGN TOKENS & RESET
+   ========================================= */
+:root {
+  --bg-base: #07090f;
+  --text-primary: #f4f6fb;
+  --text-secondary: #9aa4b8;
+  --text-muted: #647087;
+
+  /* Aurora Palette (Subtle, formal hues) */
+  --aurora-1: rgba(56, 189, 248, 0.24); /* Soft Cyan */
+  --aurora-2: rgba(99, 102, 241, 0.26); /* Deep Indigo */
+  --aurora-3: rgba(45, 212, 191, 0.18); /* Muted Teal */
+
+  /* Glassmorphism Surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.035);
+  --glass-bg-hover: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-border-hover: rgba(255, 255, 255, 0.22);
+  --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1140px, 90%);
+  margin-inline: auto;
+}
+
+.section-spacing {
+  padding-block: 5.5rem;
+}
+
+/* =========================================
+   2. AURORA AMBIENT BACKGROUND
+   ========================================= */
+.aurora-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, #0d1324 0%, var(--bg-base) 75%);
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.85;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 55vw;
+  height: 55vw;
+  top: -18%;
+  left: -10%;
+  background: var(--aurora-1);
+  animation: auroraDriftOne 22s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: 50vw;
+  height: 50vw;
+  top: 10%;
+  right: -12%;
+  background: var(--aurora-2);
+  animation: auroraDriftTwo 26s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: 48vw;
+  height: 48vw;
+  bottom: -20%;
+  left: 25%;
+  background: var(--aurora-3);
+  animation: auroraDriftThree 24s ease-in-out infinite alternate;
+}
+
+@keyframes auroraDriftOne {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(8%, 12%) scale(1.08); }
+}
+
+@keyframes auroraDriftTwo {
+  0% { transform: translate(0, 0) scale(1.05); }
+  100% { transform: translate(-10%, 14%) scale(0.95); }
+}
+
+@keyframes auroraDriftThree {
+  0% { transform: translate(0, 0) scale(0.95); }
+  100% { transform: translate(6%, -12%) scale(1.08); }
+}
+
+/* =========================================
+   3. GLASS NAVIGATION
+   ========================================= */
+.glass-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 9, 15, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 12px #38bdf8;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+  padding-top: 7.5rem;
+  padding-bottom: 5rem;
+  max-width: 820px;
+}
+
+.pill-badge {
+  display: inline-block;
+  padding: 0.4rem 0.95rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #bae6fd;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(10px);
+}
+
+h1, h2, h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  line-height: 1.12;
+  margin-bottom: 1.4rem;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  font-weight: 300;
+  margin-bottom: 2.4rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-primary,
+.btn-glass {
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.35s var(--transition-smooth), background 0.35s ease, border-color 0.35s ease;
+}
+
+.btn-primary {
+  background: #f4f6fb;
+  color: #07090f;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.btn-glass {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+}
+
+.btn-glass:hover {
+  transform: translateY(-2px);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* =========================================
+   5. FILTER CONTROLS & GLASS CARDS
+   ========================================= */
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--glass-border-hover);
+}
+
+.filter-btn.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--glass-shadow);
+  transition:
+    transform 0.45s var(--transition-smooth),
+    border-color 0.45s ease,
+    background 0.45s ease,
+    opacity 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Subtle interactive cursor spotlight inside cards */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.08),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-meta {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.glass-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.glass-card p {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.tag-list li {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.glass-card.hidden-card {
+  display: none;
+}
+
+/* =========================================
+   6. GLASS PANELS & METRICS
+   ========================================= */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: var(--glass-shadow);
+}
+
+.panel-header {
+  margin-bottom: 2.5rem;
+}
+
+.panel-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.panel-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.metric-value,
+.metric-suffix {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.metric-suffix {
+  color: #38bdf8;
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.minimal-split {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.minimal-split p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* =========================================
+   7. FOOTER & SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.glass-footer {
+  border-top: 1px solid var(--glass-border);
+  padding-block: 2rem;
+  margin-top: 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.85s var(--transition-smooth),
+    transform 0.85s var(--transition-smooth);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .minimal-split {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-panel {
+    padding: 2rem;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+  }
+}

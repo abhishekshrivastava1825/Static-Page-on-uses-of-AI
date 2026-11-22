@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artificial Intelligence — Modern Applications</title>
+  <!-- Clean, executive typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Aurora Background -->
+  <div class="aurora-canvas" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Glass Navigation Bar -->
+  <header class="glass-nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>AETHER // AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#domains">Domains</a>
+        <a href="#impact">Impact</a>
+        <a href="#principles">Ethics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero container">
+      <div class="reveal">
+        <span class="pill-badge">Enterprise &amp; Societal Intelligence</span>
+        <h1>Practical Applications of Artificial Intelligence</h1>
+        <p class="hero-subtitle">
+          A structured overview of how machine learning, natural language processing, and computer vision drive precision, efficiency, and innovation across global industries.
+        </p>
+        <div class="hero-actions">
+          <a href="#domains" class="btn-primary">Explore Domains</a>
+          <a href="#impact" class="btn-glass">View Key Metrics</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Domains Section -->
+    <section id="domains" class="container section-spacing">
+      <div class="section-header reveal">
+        <h2>Core Application Domains</h2>
+        <p>Select a category to filter specific real-world implementations.</p>
+      </div>
+
+      <!-- Minimalist Filter Tabs -->
+      <div class="filter-bar reveal" role="tablist">
+        <button class="filter-btn active" data-filter="all">All Sectors</button>
+        <button class="filter-btn" data-filter="science">Science &amp; Health</button>
+        <button class="filter-btn" data-filter="enterprise">Enterprise &amp; Finance</button>
+        <button class="filter-btn" data-filter="infrastructure">Industry &amp; Systems</button>
+      </div>
+
+      <!-- Glassmorphic Card Grid -->
+      <div class="cards-grid">
+        <article class="glass-card reveal" data-category="science">
+          <div class="card-glow"></div>
+          <div class="card-meta">01 / SCIENCE &amp; HEALTH</div>
+          <h3>Healthcare &amp; Diagnostics</h3>
+          <p>
+            Early disease detection through medical imaging analysis, accelerated protein folding for drug discovery, and personalized treatment protocols.
+          </p>
+          <ul class="tag-list">
+            <li>Radiology Vision</li>
+            <li>Genomics</li>
+            <li>Predictive Triage</li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal" data-category="enterprise">
+          <div class="card-glow"></div>
+          <div class="card-meta">02 / ENTERPRISE &amp; FINANCE</div>
+          <h3>Quantitative Finance &amp; Risk</h3>
+          <p>
+            Real-time anomaly detection to prevent payment fraud, algorithmic portfolio optimization, and automated regulatory compliance auditing.
+          </p>
+          <ul class="tag-list">
+            <li>Fraud Detection</li>
+            <li>Credit Modeling</li>
+            <li>Risk Forecasting</li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal" data-category="infrastructure">
+          <div class="card-glow"></div>
+          <div class="card-meta">03 / INDUSTRY &amp; SYSTEMS</div>
+          <h3>Autonomous Mobility &amp; Logistics</h3>
+          <p>
+            Sensor-fusion perception for autonomous vehicles, dynamic global supply chain routing, and predictive fleet maintenance.
+          </p>
+          <ul class="tag-list">
+            <li>LiDAR Perception</li>
+            <li>Route Optimization</li>
+            <li>Fleet Telemetry</li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal" data-category="enterprise">
+          <div class="card-glow"></div>
+          <div class="card-meta">04 / ENTERPRISE &amp; FINANCE</div>
+          <h3>Software &amp; Knowledge Work</h3>
+          <p>
+            Semantic document synthesis, automated code generation and security verification, and multilingual enterprise knowledge retrieval.
+          </p>
+          <ul class="tag-list">
+            <li>Code Synthesis</li>
+            <li>Semantic Search</li>
+            <li>Workflow Automation</li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal" data-category="science">
+          <div class="card-glow"></div>
+          <div class="card-meta">05 / SCIENCE &amp; HEALTH</div>
+          <h3>Climate &amp; Energy Modeling</h3>
+          <p>
+            High-resolution atmospheric forecasting, smart grid load balancing for renewable energy, and precision agricultural resource management.
+          </p>
+          <ul class="tag-list">
+            <li>Grid Balancing</li>
+            <li>Weather Simulation</li>
+            <li>Precision AgTech</li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal" data-category="infrastructure">
+          <div class="card-glow"></div>
+          <div class="card-meta">06 / INDUSTRY &amp; SYSTEMS</div>
+          <h3>Cybersecurity &amp; Defense</h3>
+          <p>
+            Behavioral network traffic monitoring, zero-day threat neutralization, and automated incident response across cloud infrastructure.
+          </p>
+          <ul class="tag-list">
+            <li>Threat Intelligence</li>
+            <li>Zero-Trust AI</li>
+            <li>Automated Response</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Measurable Impact Section -->
+    <section id="impact" class="container section-spacing">
+      <div class="glass-panel reveal">
+        <div class="panel-header">
+          <h2>Operational Impact</h2>
+          <p>Observed efficiency benchmarks across mature AI deployments.</p>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="metric-value" data-target="40">0</span><span class="metric-suffix">%</span>
+            <p class="metric-label">Reduction in diagnostic imaging review times</p>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value" data-target="65">0</span><span class="metric-suffix">%</span>
+            <p class="metric-label">Faster real-time financial fraud containment</p>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value" data-target="30">0</span><span class="metric-suffix">%</span>
+            <p class="metric-label">Decrease in industrial unplanned downtime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Governance & Principles -->
+    <section id="principles" class="container section-spacing">
+      <div class="glass-panel minimal-split reveal">
+        <div>
+          <span class="card-meta">GOVERNANCE FRAMEWORK</span>
+          <h2>Responsible Deployment</h2>
+        </div>
+        <p>
+          Sustainable AI adoption relies on transparent model auditing, strict data privacy boundaries, and human-in-the-loop oversight for high-consequence decisions.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="glass-footer">
+    <div class="container footer-inner">
+      <span>AETHER // Artificial Intelligence Overview</span>
+      <span>Designed with Aurora &amp; Glassmorphism UI</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
